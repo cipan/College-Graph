@@ -12,7 +12,6 @@ attr_reader :categoryList
     moneyMatch = (/\d+,\d+|NA/)
     categoryMatch = (/^\s*\"+\s*(.*?)\s*(?:\"+\s*)/)
 
-    #datafile = 'P17_2011.csv'
     f = File.open(datafile)
     begin
       while  line = f.gets
@@ -28,7 +27,7 @@ attr_reader :categoryList
               line = f.gets
               year = (yearMatch).match(line).to_s.to_i
               earnings = line.scan(moneyMatch)[1]
-              #Deal with non existant data find how to average values
+              #Deal with non existant data find how to average values sets to previous year's value
               if earnings != "NA"
                 earnings = earnings.tr(',', '').to_i
                 @nilEarn = earnings
@@ -44,8 +43,6 @@ attr_reader :categoryList
         end
       end
       @categoryList = categoryList
-      #TEST PURPOSES
-      #puts @categoryList[1].earnedIn(1990)
     rescue
 
     ensure
