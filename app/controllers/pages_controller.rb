@@ -36,4 +36,6 @@ def graph
   opts = { width: 2000, height: 1000, title: 'College Years vs Wage', hAxis: {title: 'Year', titleTextStyle: {color: '#FF0000'}} }
   @chart = GoogleVisualr::Interactive::AreaChart.new(@data_table, opts) 
   end
+  def index
+  end
 end
